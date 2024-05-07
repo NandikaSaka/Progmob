@@ -10,4 +10,5 @@
     <string name="hasil">Hasil</string>
     <string name="move_browser">Pindah Browser</string>
     <string name="move_activity">Pindah Activity</string>
+    <string name="berhasil_pindah_activity">Berhasil pindah activity</string>
 </resources>

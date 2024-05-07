@@ -3,7 +3,10 @@
 package com.example.kalkulatorsederhana
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         val kali = main.times
         val bagi = main.divide
         val hasil = main.nilaiHasil
+        val btnMoveActivity: Button = findViewById(R.id.btn_move_activity)
+        val btnMoveBrowser: Button = findViewById(R.id.btn_move_browser)
 
         tambah.setOnClickListener {
             var nilai1 = input1.text.toString()
@@ -84,6 +89,18 @@ class MainActivity : AppCompatActivity() {
                     input2.text.clear()
                 }
             }
+
+            btnMoveActivity.setOnClickListener{
+                val intent = Intent(this, AnotherActivity::class.java)
+                startActivity(intent)
+            }
+
+            btnMoveBrowser.setOnClickListener{
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://developer.android.com"));
+                startActivity(intent)
+            }
+
+
         }
     }
 }
