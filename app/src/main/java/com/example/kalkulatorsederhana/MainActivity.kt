@@ -1,6 +1,8 @@
 package com.example.kalkulatorsederhana
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -23,17 +25,18 @@ class MainActivity : AppCompatActivity() {
         val kali = main.times
         val bagi = main.divide
         val hasil = main.nilaiHasil
+        val pindah = main.pindahBrowser
 
 
         tambah.setOnClickListener {
-            var nilai1 = input1.text.toString()
-            var nilai2 = input2.text.toString()
+            val nilai1 = input1.text.toString()
+            val nilai2 = input2.text.toString()
 
             if(nilai1.isEmpty() || nilai2.isEmpty()){
                 Toast.makeText(this, "Mohon lengkapi kedua datanya!", Toast.LENGTH_SHORT).show()
             }
             else{
-                var total = nilai1.toFloat() + nilai2.toFloat()
+                val total = nilai1.toFloat() + nilai2.toFloat()
                 hasil.text = total.toString()
                 input1.text.clear()
                 input2.text.clear()
@@ -41,14 +44,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         kurang.setOnClickListener{
-            var nilai1 = input1.text.toString()
-            var nilai2 = input2.text.toString()
+            val nilai1 = input1.text.toString()
+            val nilai2 = input2.text.toString()
 
             if(nilai1.isEmpty() || nilai2.isEmpty()){
                 Toast.makeText(this, "Mohon lengkapi kedua datanya!", Toast.LENGTH_SHORT).show()
             }
             else{
-                var total = nilai1.toFloat() - nilai2.toFloat()
+                val total = nilai1.toFloat() - nilai2.toFloat()
                 hasil.text = total.toString()
                 input1.text.clear()
                 input2.text.clear()
@@ -56,13 +59,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         kali.setOnClickListener {
-            var nilai1 = input1.text.toString()
-            var nilai2 = input2.text.toString()
+            val nilai1 = input1.text.toString()
+            val nilai2 = input2.text.toString()
 
             if (nilai1.isEmpty() || nilai2.isEmpty()) {
                 Toast.makeText(this, "Mohon lengkapi kedua datanya!", Toast.LENGTH_SHORT).show()
             } else {
-                var total = nilai1.toFloat() * nilai2.toFloat()
+                val total = nilai1.toFloat() * nilai2.toFloat()
                 hasil.text = total.toString()
                 input1.text.clear()
                 input2.text.clear()
@@ -70,18 +73,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         bagi.setOnClickListener{
-            var nilai1 = input1.text.toString()
-            var nilai2 = input2.text.toString()
+            val nilai1 = input1.text.toString()
+            val nilai2 = input2.text.toString()
 
             if(nilai1.isEmpty() || nilai2.isEmpty()){
                 Toast.makeText(this, "Mohon lengkapi kedua datanya!", Toast.LENGTH_SHORT).show()
             }
             else{
-                var total = nilai1.toFloat() / nilai2.toFloat()
+                val total = nilai1.toFloat() / nilai2.toFloat()
                 hasil.text = total.toString()
                 input1.text.clear()
                 input2.text.clear()
             }
+        }
+
+        pindah.setOnClickListener{
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://developer.android.com"))
+            startActivity(intent)
         }
     }
 }
